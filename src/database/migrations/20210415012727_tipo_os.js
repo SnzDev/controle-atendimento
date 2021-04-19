@@ -5,7 +5,13 @@ exports.up = function (knex) {
         table.string('nome').notNullable();
         table.string('icone').notNullable();
         table.integer('ativo').defaultTo(1);
-        table.timestamps();
+        table.dateTime('created_on')
+            .notNullable()
+            .defaultTo(knex.raw('CURRENT_TIMESTAMP'))
+
+        table.dateTime('updated_on')
+            .notNullable()
+            .defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
     })
 };
 

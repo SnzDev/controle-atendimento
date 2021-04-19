@@ -1,8 +1,9 @@
-const connection = require('../../knexfile');
+const connection = require('../config/knex');
 
 module.exports = {
     async index(req, res) {
-        res.json('teste');
+        const response = await connection('clientes').select();
+        res.json(response);
     },
     async store(req, res) {
         res.json('teste');

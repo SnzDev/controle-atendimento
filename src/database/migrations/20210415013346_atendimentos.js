@@ -13,7 +13,13 @@ exports.up = function (knex) {
         table.foreign('id_usuario').references('usuarios.id');
         table.foreign('id_tipo_os').references('tipo_os.id')
         table.foreign('id_cliente').references('clientes.id');
-        table.timestamps();
+        table.dateTime('created_on')
+            .notNullable()
+            .defaultTo(knex.raw('CURRENT_TIMESTAMP'))
+
+        table.dateTime('updated_on')
+            .notNullable()
+            .defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'))
     })
 };
 
