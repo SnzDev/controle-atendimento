@@ -1,10 +1,10 @@
 
 exports.up = function (knex) {
-    return knex.createTable('atendimentos', function (table) {
+    return knex.schema.createTable('atendimentos', function (table) {
         table.increments('id').primary().notNullable();
         table.integer('id_cliente').unsigned().notNullable();
         table.integer('id_tipo_os').unsigned().notNullable();
-        table.integer('id_usuario').unsigned().NotNullable();
+        table.integer('id_usuario').unsigned().notNullable();
         table.string('servico_realizado');
         table.string('obs');
         table.integer('status').defaultTo(0);
