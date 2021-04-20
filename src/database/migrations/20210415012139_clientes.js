@@ -4,9 +4,9 @@ exports.up = function (knex) {
     table.increments('id').primary().notNullable();
     table.string('nome').notNullable();
     table.string('telefone', 15);
-    table.string('usuario').notNullable();
+    table.string('usuario').unique().notNullable();
     table.string('cto').notNullable();
-    table.string('porta').notNullable();
+    table.string('porta');
     table.string('serial').notNullable();
     table.string('lat');
     table.string('long');

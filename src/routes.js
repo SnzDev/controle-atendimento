@@ -20,8 +20,8 @@ routes.delete('/cargos', cargosController.delete);
 
 routes.get('/clientes', clientesController.index);
 routes.post('/clientes', clientesController.store);
-routes.get('/cliente', clientesController.show);
-routes.delete('/clientes', clientesController.delete);
+routes.get('/cliente/:id', clientesController.show);
+routes.delete('/cliente/:id', clientesController.delete);
 
 routes.get('/tipo_os', tipo_osController.index);
 routes.post('/tipo_os', tipo_osController.store);
