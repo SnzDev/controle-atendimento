@@ -10,8 +10,8 @@ const usuariosController = require('./controller/usuariosController');
 
 routes.get('/atendimentos', atendimentosController.index);
 routes.post('/atendimentos', atendimentosController.store);
-routes.get('/atendimento', atendimentosController.show);
-routes.delete('/atendimentos', atendimentosController.delete);
+routes.get('/atendimento/:id', atendimentosController.show);
+routes.delete('/atendimento/:id', atendimentosController.delete);
 
 routes.get('/cargos', cargosController.index);
 routes.post('/cargos', cargosController.store);

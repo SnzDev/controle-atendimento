@@ -8,6 +8,7 @@ exports.up = function (knex) {
         table.string('servico_realizado');
         table.string('obs');
         table.integer('status').defaultTo(0);
+        table.integer('ativo').defaultTo(1);
 
 
         table.foreign('id_usuario').references('usuarios.id');
