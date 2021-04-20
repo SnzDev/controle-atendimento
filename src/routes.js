@@ -15,8 +15,8 @@ routes.delete('/atendimentos', atendimentosController.delete);
 
 routes.get('/cargos', cargosController.index);
 routes.post('/cargos', cargosController.store);
-routes.get('/cargo', cargosController.show);
-routes.delete('/cargos', cargosController.delete);
+routes.get('/cargo/:id', cargosController.show);
+routes.delete('/cargo/:id', cargosController.delete);
 
 routes.get('/clientes', clientesController.index);
 routes.post('/clientes', clientesController.store);

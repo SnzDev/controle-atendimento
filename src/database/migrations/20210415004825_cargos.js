@@ -3,6 +3,7 @@ exports.up = function (knex) {
     return knex.schema.createTable('cargos', function (table) {
         table.increments('id').primary().notNullable();
         table.string('nome').notNullable();
+        table.integer('ativo').notNullable().defaultTo(1);
         table.dateTime('created_on')
             .notNullable()
             .defaultTo(knex.raw('CURRENT_TIMESTAMP'))

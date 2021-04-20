@@ -1,16 +1,23 @@
-const connection = require('../../knexfile');
+const connection = require('../config/knex');
 
 module.exports = {
     async index(req, res) {
-        res.json('teste');
+        const response = await connection('cargos').where({ ativo: 1 });
+        res.json(response);
     },
     async store(req, res) {
-        res.json('teste');
+        const { nome } = req.body;
+        const response = await connection('cargos').insert({ nome });
+        res.json(response);
     },
     async show(req, res) {
-        res.json('teste');
+        const { id } = req.params;
+        const response = await connection('cargos').select().where({ id });
+        res.json(response);
     },
     async delete(req, res) {
-        res.json('teste');
+        const { id } = req.params;
+        const response = await connection('cargos').where({ id }).update({ ativo: 0 });
+        res.json(response);
     },
 }
