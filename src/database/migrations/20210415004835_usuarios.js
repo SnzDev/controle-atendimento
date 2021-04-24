@@ -4,7 +4,7 @@ exports.up = function (knex) {
         table.increments('id').primary().notNullable();
         table.string('nome', 50).notNullable();
         table.string('telefone', 15).notNullable();
-        table.string('email').notNullable();
+        table.string('email').unique().notNullable();
         table.string('senha').notNullable();
         table.integer('cargo_id').unsigned().notNullable();
         table.foreign('cargo_id').references('cargos.id');

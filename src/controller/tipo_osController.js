@@ -2,7 +2,7 @@ const connection = require('../config/knex');
 
 module.exports = {
     async index(req, res) {
-        const response = await connection('tipo_os').select().where({ ativo: 1 });
+        const response = await connection('tipo_os').select();
         res.json(response)
     },
     async store(req, res) {

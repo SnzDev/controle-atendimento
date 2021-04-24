@@ -2,7 +2,7 @@ const connection = require('../config/knex');
 
 module.exports = {
     async index(req, res) {
-        const response = await connection('atendimentos').select().where({ ativo: 1 });
+        const response = await connection('atendimentos').select();
         res.json(response);
     },
     async store(req, res) {
@@ -17,6 +17,7 @@ module.exports = {
     },
     async delete(req, res) {
         const { id } = req.params;
-        const response = await connection('atendimentos').where({ id }).update({ ativo: 0 })
+        const response = await connection('atendimentos').where({ id }).update({ ativo: 0 });
+        res.json(response);
     },
 }
