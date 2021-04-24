@@ -25,8 +25,8 @@ routes.delete('/cliente/:id', clientesController.delete);
 
 routes.get('/tipo_os', tipo_osController.index);
 routes.post('/tipo_os', tipo_osController.store);
-routes.get('/tipo_o', tipo_osController.show);
-routes.delete('/tipo_os', tipo_osController.delete);
+routes.get('/tipo_o/:id', tipo_osController.show);
+routes.delete('/tipo_os/:id', tipo_osController.delete);
 
 routes.get('/usuarios', usuariosController.index);
 routes.post('/usuarios', usuariosController.store);

@@ -1,4 +1,4 @@
-const connection = require('../../knexfile');
+const connection = require('../config/knex');
 
 module.exports = {
     async index(req, res) {
