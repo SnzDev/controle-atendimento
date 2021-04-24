@@ -13,11 +13,12 @@ module.exports = {
         res.json(response);
     },
     async show(req, res) {
-        const { id } = req.body;
+        const { id } = req.params;
         const response = await connection('usuarios').select().where({ id });
+        res.json(response);
     },
     async delete(req, res) {
-        const { id } = req.body;
+        const { id } = req.params;
         const response = await connection('usuarios').update({ ativo: 0 }).where({ id });
         res.json(response);
     },

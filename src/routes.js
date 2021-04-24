@@ -30,7 +30,7 @@ routes.delete('/tipo_os/:id', tipo_osController.delete);
 
 routes.get('/usuarios', usuariosController.index);
 routes.post('/usuarios', usuariosController.store);
-routes.get('/usuario', usuariosController.show);
-routes.delete('/usuarios', usuariosController.delete);
+routes.get('/usuario/:id', usuariosController.show);
+routes.delete('/usuarios/:id', usuariosController.delete);
 
 module.exports = routes;
