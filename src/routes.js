@@ -1,17 +1,22 @@
 const express = require('express')
 const routes = express.Router();
 
+const sessionController = require('./controller/sessionController')
 const atendimentosController = require('./controller/atendimentosController');
 const cargosController = require('./controller/cargosController');
 const clientesController = require('./controller/clientesController');
 const tipo_osController = require('./controller/tipo_osController');
 const usuariosController = require('./controller/usuariosController');
 
+routes.post('/session', sessionController.store);
 
 routes.get('/atendimentos', atendimentosController.index);
 routes.post('/atendimentos', atendimentosController.store);
 routes.get('/atendimento/:id', atendimentosController.show);
+routes.post('/atendimento', atendimentosController.list);
 routes.delete('/atendimento/:id', atendimentosController.delete);
+routes.post('/atendimento/:id', atendimentosController.update);
+
 
 routes.get('/cargos', cargosController.index);
 routes.post('/cargos', cargosController.store);

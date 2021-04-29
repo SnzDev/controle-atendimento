@@ -3,7 +3,10 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
     async index(req, res) {
-        const response = await connection('usuarios').select();
+        const response = await connection('usuarios')
+            .orderBy('usuarios.nome')
+            .join('cargos as cargo', 'usuarios.cargo_id', 'cargo.id')
+            .select('usuarios.id', 'usuarios.nome', 'usuarios.telefone', 'usuarios.email', 'usuarios.senha', 'usuarios.ativo', 'cargo.nome as cargo_nome');
         res.json(response);
     },
     async store(req, res) {
@@ -14,7 +17,11 @@ module.exports = {
     },
     async show(req, res) {
         const { id } = req.params;
-        const response = await connection('usuarios').select().where({ id });
+        const response = await connection('usuarios')
+            .orderBy('usuarios.nome')
+            .join('cargos as cargo', 'usuarios.cargo_id', 'cargo.id')
+            .select('usuarios.id', 'usuarios.nome', 'usuarios.telefone', 'usuarios.email', 'usuarios.senha', 'usuarios.ativo', 'cargo.nome as cargo_nome')
+            .where({ id });
         res.json(response);
     },
     async delete(req, res) {
